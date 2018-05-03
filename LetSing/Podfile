@@ -11,5 +11,7 @@ target 'LetSing' do
   pod "Alamofire"
   pod 'YouTubePlayer'
   pod 'SwiftLint'
+  pod 'Firebase/Core'
+  pod 'YoutubeSourceParserKit'
 
 end
