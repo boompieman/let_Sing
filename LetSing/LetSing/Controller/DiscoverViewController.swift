@@ -23,6 +23,13 @@ class DiscoverViewController: UIViewController {
         
         setupTypeCollectionView()
         setupSongCollectionView()
+
+        let discoverTypeCollectionViewFlowLayout = discoverTypeCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        discoverTypeCollectionViewFlowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width / 2, height: 40)
+
+        let discoverSongCollectionViewFlowLayout = discoverSongCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        discoverSongCollectionViewFlowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: discoverSongCollectionView.bounds.height)
+
     }
 
     func setupTypeCollectionView() {
@@ -42,23 +49,23 @@ class DiscoverViewController: UIViewController {
         discoverSongCollectionView.register(nib, forCellWithReuseIdentifier: String(describing: DiscoverSongCollectionViewCell.self))
     }
 
-//    func scrollViewDidScroll(_ scrollView: UIScrollView)
-//    {
-//        let discoverTypeCollectionViewFlowLayout = discoverTypeCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
-//        let discoverSongCollectionViewFlowLayout = discoverSongCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
-//        let discoverTypeDistanceBetweenItemsCenter = discoverTypeCollectionViewFlowLayout.minimumLineSpacing + discoverTypeCollectionViewFlowLayout.itemSize.width
-//        let discoverSongDistanceBetweenItemsCenter = discoverSongCollectionViewFlowLayout.minimumLineSpacing + discoverSongCollectionViewFlowLayout.itemSize.width
-//        let offsetFactor = discoverTypeDistanceBetweenItemsCenter / discoverSongDistanceBetweenItemsCenter
-//
-//        if (scrollView == discoverTypeCollectionView) {
-//            let xOffset = scrollView.contentOffset.x - scrollView.frame.origin.x
-//            discoverSongCollectionView.contentOffset.x = xOffset / offsetFactor
-//        }
-//        else if (scrollView == discoverSongCollectionView) {
-//            let xOffset = scrollView.contentOffset.x - scrollView.frame.origin.x
-//            discoverTypeCollectionView.contentOffset.x = xOffset * offsetFactor
-//        }
-//    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView)
+    {
+        let discoverTypeCollectionViewFlowLayout = discoverTypeCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        let discoverSongCollectionViewFlowLayout = discoverSongCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        let discoverTypeDistanceBetweenItemsCenter = discoverTypeCollectionViewFlowLayout.minimumLineSpacing + discoverTypeCollectionViewFlowLayout.itemSize.width
+        let discoverSongDistanceBetweenItemsCenter = discoverSongCollectionViewFlowLayout.minimumLineSpacing + discoverSongCollectionViewFlowLayout.itemSize.width
+        let offsetFactor = discoverTypeDistanceBetweenItemsCenter / discoverSongDistanceBetweenItemsCenter
+
+        if (scrollView == discoverTypeCollectionView) {
+            let xOffset = scrollView.contentOffset.x - scrollView.frame.origin.x
+            discoverSongCollectionView.contentOffset.x = xOffset / offsetFactor
+        }
+        else if (scrollView == discoverSongCollectionView) {
+            let xOffset = scrollView.contentOffset.x - scrollView.frame.origin.x
+            discoverTypeCollectionView.contentOffset.x = xOffset * offsetFactor
+        }
+    }
 }
 
 extension DiscoverViewController: UICollectionViewDelegate, UICollectionViewDataSource {
