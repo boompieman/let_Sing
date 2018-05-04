@@ -19,9 +19,9 @@ class DiscoverSongCollectionViewCell: UICollectionViewCell {
     }
 
     func setupTableView() {
-        let nib = UINib(nibName: String(describing: DiscoverSongTableViewCell.self), bundle: nil)
-
-        self.discoverSongTableView.register(nib, forCellReuseIdentifier: String(describing: DiscoverSongTableViewCell.self))
+//        let nib = UINib(nibName: String(describing: DiscoverSongTableViewCell.self), bundle: nil)
+//
+//        self.discoverSongTableView.register(nib, forCellReuseIdentifier: String(describing: DiscoverSongTableViewCell.self))
     }
 
 //    func setTableViewDataSourceDelegate <D: UICollectionViewDataSource & UICollectionViewDelegate>

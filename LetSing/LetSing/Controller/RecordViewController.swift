@@ -22,33 +22,11 @@ class RecordViewController: UIViewController {
 
 
         // Do any additional setup after loading the view, typically from a nib.
-//        getFeedVideos()
     }
 
 
 
-//    let PLAYLISTID = "UUMVhEr3rnPRDqAftmT5gq1A"
-//    let KEY = "AIzaSyBNMdTRxwA1waBGk_qFxUSRadSAw_dg3Bc"
 
-//    func getFeedVideos() {
-//
-//        Alamofire.request("https://www.googleapis.com/youtube/v3/playlistItems", method: .get, parameters: ["part" : "snippet" , "playlistId" : PLAYLISTID , "key" : KEY], encoding: URLEncoding.default, headers: nil).responseJSON{(response) -> Void in
-//
-////            print(response.result.value)
-//
-//            if let data = response.result.value as? [String: Any] {
-//                guard let items = data["items"] as? [AnyObject] else {
-//                    print("NO Data")
-//                    return
-//                }
-//                for video in items {
-//                    print("--------")
-//                    print(video)
-//                    print("--------")
-//                }
-//            }
-//        }
-//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
