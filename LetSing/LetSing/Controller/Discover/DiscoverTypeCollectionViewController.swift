@@ -10,12 +10,22 @@ import Foundation
 import UIKit
 
 
+protocol DiscoverTypeCollectionViewControllerDelegate: class {
+    func typeViewDidScroll(_ controller: DiscoverTypeCollectionViewController, translation: CGFloat)
+}
+
+
 class DiscoverTypeCollectionViewController: UIViewController {
 
-
-    
     @IBOutlet weak var collectionView: UICollectionView!
+
+    weak var delegate: DiscoverTypeCollectionViewControllerDelegate? // to pass offset for parent controller
+
+    var discoverTypeDistanceBetweenItemsCenter: CGFloat?
+
     override func viewDidLoad() {
+
+        print("type")
 
         setupCollectionView()
     }
@@ -31,6 +41,8 @@ class DiscoverTypeCollectionViewController: UIViewController {
         let discoverTypeCollectionViewFlowLayout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         discoverTypeCollectionViewFlowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width / 2, height: 40)
         discoverTypeCollectionViewFlowLayout.minimumLineSpacing = 0
+
+        discoverTypeDistanceBetweenItemsCenter = discoverTypeCollectionViewFlowLayout.minimumLineSpacing + discoverTypeCollectionViewFlowLayout.itemSize.width
     }
 }
 
@@ -61,6 +73,13 @@ extension DiscoverTypeCollectionViewController: UICollectionViewDelegate, UIColl
 //        if collectionView == self.discoverTypeCollectionView {
 //            self.discoverSongCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
 //        }
+    }
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+
+        let offsetX = scrollView.contentOffset.x - scrollView.frame.origin.x
+        self.delegate?.typeViewDidScroll(self, translation: offsetX)
+
     }
 }
 

@@ -9,12 +9,21 @@
 import Foundation
 import UIKit
 
+protocol DiscoverSongCollectionViewControllerDelegate: class {
+    func songViewDidScroll(_ controller: DiscoverSongCollectionViewController, translation: CGFloat)
+}
 
 class DiscoverSongCollectionViewController: UIViewController {
 
+    var discoverSongDistanceBetweenItemsCenter: CGFloat?
+
+    weak var delegate: DiscoverSongCollectionViewControllerDelegate?
 
     @IBOutlet weak var collectionView: UICollectionView!
+
     override func viewDidLoad() {
+
+        print("song")
 
         setupCollectionView()
     }
@@ -29,11 +38,13 @@ class DiscoverSongCollectionViewController: UIViewController {
 
         // set song collection view layout
         let discoverSongCollectionViewFlowLayout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        discoverSongCollectionViewFlowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width / 2, height: self.collectionView.bounds.height)
+        discoverSongCollectionViewFlowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: self.collectionView.bounds.height)
 
 
 
         discoverSongCollectionViewFlowLayout.minimumLineSpacing = 0
+        
+        discoverSongDistanceBetweenItemsCenter = discoverSongCollectionViewFlowLayout.minimumLineSpacing + discoverSongCollectionViewFlowLayout.itemSize.width
     }
 
 }
@@ -58,6 +69,13 @@ extension DiscoverSongCollectionViewController: UICollectionViewDataSource, UICo
         guard let discoverSongCollectionViewCell = cell as? DiscoverTypeCollectionViewCell else {return cell}
 
         return discoverSongCollectionViewCell
+    }
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+
+        let offsetX = scrollView.contentOffset.x - scrollView.frame.origin.x
+        self.delegate?.songViewDidScroll(self, translation: offsetX)
+
     }
 }
 
@@ -84,4 +102,19 @@ extension DiscoverSongCollectionViewController: UICollectionViewDelegateFlowLayo
     }
 }
 
+
+//extension DiscoverSongCollectionViewController: DiscoverTypeCollectionViewControllerDelegate {
+//    func typeViewDidScroll(_ controller: DiscoverTypeCollectionViewController, itemCenter: CGFloat) {
+//        self.typeItemCenter = itemCenter
+//    }
+//
+//    func chahgePosition() {
+//        guard let typeItemCenter = typeItemCenter else {
+//            return
+//        }
+//
+//        
+//    }
+
+//}
 

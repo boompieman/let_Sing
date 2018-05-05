@@ -16,7 +16,6 @@ class POMCollectionViewFlowLayout: UICollectionViewFlowLayout {
         var offsetAdjustment = MAXFLOAT;
         var horizontalOffset = proposedContentOffset.x + (self.collectionView!.frame.size.width - self.itemSize.width) / 2.0
 
-        print("x: ", proposedContentOffset.x)
 //        print("frame.size.width: ",self.collectionView!.frame.size.width) // always UIScreen
 //        print("item: ", self.itemSize)
 //        var horizontalOffset = proposedContentOffset.x + (self.collectionView!.frame.size.width) / 2.0
@@ -33,8 +32,6 @@ class POMCollectionViewFlowLayout: UICollectionViewFlowLayout {
         }
 
         var offsetX = Float(proposedContentOffset.x) + offsetAdjustment
-        print(self.collectionView?.contentOffset)
-        print(CGPoint(x: CGFloat(offsetX), y: proposedContentOffset.y))
         return CGPoint(x: CGFloat(offsetX), y: proposedContentOffset.y)
     }
 }
