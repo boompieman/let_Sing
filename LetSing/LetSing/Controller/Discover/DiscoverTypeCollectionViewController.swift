@@ -12,6 +12,8 @@ import UIKit
 
 protocol DiscoverTypeCollectionViewControllerDelegate: class {
     func typeViewDidScroll(_ controller: DiscoverTypeCollectionViewController, translation: CGFloat)
+
+    func typeViewDidSelect(_ controller: DiscoverTypeCollectionViewController, indexPath: IndexPath)
 }
 
 
@@ -25,9 +27,8 @@ class DiscoverTypeCollectionViewController: UIViewController {
 
     override func viewDidLoad() {
 
-        print("type")
-
         setupCollectionView()
+
     }
 
     func setupCollectionView() {
@@ -50,7 +51,7 @@ class DiscoverTypeCollectionViewController: UIViewController {
 extension DiscoverTypeCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
-        return 5
+        return 3
 
     }
 
@@ -69,10 +70,9 @@ extension DiscoverTypeCollectionViewController: UICollectionViewDelegate, UIColl
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
-//        print("indexPath", indexPath)
-//        if collectionView == self.discoverTypeCollectionView {
-//            self.discoverSongCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-//        }
+
+        self.delegate?.typeViewDidSelect(self, indexPath: indexPath)
+
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

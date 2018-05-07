@@ -10,13 +10,13 @@ import Foundation
 
 private enum searchSongAPI: LSHTTPRequest {
 
-    case getSongBySinger(String)
+    case getSongBySearch(String)
 
     func urlParameter() -> String {
 
         switch self {
 
-        case .getSongBySinger(let song):
+        case .getSongBySearch(let song):
 
             return "/search"
 
@@ -26,7 +26,7 @@ private enum searchSongAPI: LSHTTPRequest {
     func requestParameters() -> [String : String] {
 
         switch self {
-        case .getSongBySinger(let song):
+        case .getSongBySearch(let song):
 
             return ["part" : "snippet", "q" : song, "maxResult": "5", "key" : LSConstants.youtubeKey]
         }
@@ -37,10 +37,33 @@ private enum searchSongAPI: LSHTTPRequest {
 
         switch self {
 
-        case .getSongBySinger:
+        case .getSongBySearch:
 
             return .get
         }
+    }
+}
+
+struct SongProvider {
+
+    private weak var httpClient = LSHTTPClient.shared
+
+    func getSearchSongs(songName: String, success: @escaping ([Song]) -> Void, failure: @escaping(LSError) -> Void) {
+
+        httpClient?.request(searchSongAPI.getSongBySearch(songName), success: { (data) in
+
+
+
+            let json = try? JSONSerialization.jsonObject(with: data, options: [])
+
+            print(json)
+
+            success([Song(name: "a", singer: "b", image: "c", youtube_url: "d", rank: 5, type: nil)])
+
+        }, failure: { (error) in
+            print(error)
+        })
+
     }
 }
 

@@ -23,8 +23,6 @@ class DiscoverSongCollectionViewController: UIViewController {
 
     override func viewDidLoad() {
 
-        print("song")
-
         setupCollectionView()
     }
 
@@ -46,14 +44,13 @@ class DiscoverSongCollectionViewController: UIViewController {
         
         discoverSongDistanceBetweenItemsCenter = discoverSongCollectionViewFlowLayout.minimumLineSpacing + discoverSongCollectionViewFlowLayout.itemSize.width
     }
-
 }
 
 extension DiscoverSongCollectionViewController: UICollectionViewDataSource, UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
-        return 5
+        return 3
 
     }
 
@@ -101,20 +98,4 @@ extension DiscoverSongCollectionViewController: UICollectionViewDelegateFlowLayo
         return CGSize.zero
     }
 }
-
-
-//extension DiscoverSongCollectionViewController: DiscoverTypeCollectionViewControllerDelegate {
-//    func typeViewDidScroll(_ controller: DiscoverTypeCollectionViewController, itemCenter: CGFloat) {
-//        self.typeItemCenter = itemCenter
-//    }
-//
-//    func chahgePosition() {
-//        guard let typeItemCenter = typeItemCenter else {
-//            return
-//        }
-//
-//        
-//    }
-
-//}
 

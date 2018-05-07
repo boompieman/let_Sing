@@ -85,24 +85,29 @@ extension LSHTTPRequest {
 
     func requestFromYoutube() throws -> URLRequest {
 
-        let url = URL(string: urlString())
+        var url = URLComponents(string: urlString())
 
+        let parameters = requestParameters()
+
+        url?.queryItems = [URLQueryItem]()
+
+        for (key, value) in parameters {
+            url?.queryItems?.append(URLQueryItem(name: key, value: value))
+        }
 
         guard let youtubeUrl = url else {
 
             throw LSError.youtubeError
         }
 
-//        youtubeUrl.queryItems = requestParameters()
-
-        var request = URLRequest(url: youtubeUrl)
+        var request = URLRequest(url: youtubeUrl.url!)
 
 //        request.allHTTPHeaderFields = requestHeader()
 
         request.httpMethod = httpMethod().rawValue
 
 //        request.httpBody = try JSONSerialization.data(
-//
+
 //            withJSONObject: requestBody(),
 //            options: .prettyPrinted
 //

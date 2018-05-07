@@ -10,19 +10,57 @@ import Foundation
 import UIKit
 
 
-class DiscoverViewController: UIViewController {
-
-    var typeTranslation: CGFloat?
-    var songTranslation: CGFloat = 0.0
+class DiscoverViewController: UIViewController, UIScrollViewDelegate {
 
     var offsetFactor: CGFloat = 0.0
 
+    @IBOutlet weak var scrollView: UIScrollView!
+
+    
     override func viewDidLoad() {
 
         print("handle didScroll")
+
+        scrollView.delegate = self
+
+        self.scrollView.contentSize = CGSize(width: self.view.frame.width * 3, height: self.view.frame.height)
+    }
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+
+        let offsetX = scrollView.contentOffset.x - scrollView.frame.origin.x
+
+        let songVC = childViewControllers[1] as? DiscoverSongCollectionViewController
+
+        songVC?.collectionView.setContentOffset(CGPoint(x: offsetX / offsetFactor, y: (songVC?.collectionView.frame.origin.y)!), animated: false)
+
+        let typeVC = childViewControllers[0] as? DiscoverTypeCollectionViewController
+
+        print((self.view.frame.width)/4 + offsetX * offsetFactor)
+
+        typeVC?.collectionView.setContentOffset(CGPoint(x: offsetX * offsetFactor, y: (typeVC?.collectionView.frame.origin.y)!), animated: false)
+
+//        self.delegate?.songViewDidScroll(self, translation: offsetX)
+
     }
 
 
+//    @IBAction func scrollButtonDidTapped(_ sender: Any) {
+//
+//        print("tapped")
+//
+//
+//        let songVC = childViewControllers[1] as? DiscoverSongCollectionViewController
+//
+//        songVC?.collectionView.setContentOffset(CGPoint(x: 187.5 / offsetFactor, y: (songVC?.collectionView.frame.origin.y)!), animated: true)
+//
+//
+//
+//        let typeVC = childViewControllers[0] as? DiscoverTypeCollectionViewController
+//
+//        typeVC?.collectionView.setContentOffset(CGPoint(x: 375 * offsetFactor, y: (typeVC?.collectionView.frame.origin.y)!), animated: true)
+//
+//    }
     override func viewWillAppear(_ animated: Bool) {
         super .viewWillAppear(true)
 
@@ -32,62 +70,52 @@ class DiscoverViewController: UIViewController {
         offsetFactor = (typeVC?.discoverTypeDistanceBetweenItemsCenter)! / (songVC?.discoverSongDistanceBetweenItemsCenter)!
 
         print(offsetFactor)
+
     }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let identifier = segue.identifier {
-
-            print("iiiiii", identifier)
-
-            switch identifier {
-            case "DiscoverTypeCollectionViewController":
-                if let typeVC = segue.destination as? DiscoverTypeCollectionViewController {
-                    typeVC.delegate = self
-                }
-            default:
-                if let songVC = segue.destination as? DiscoverSongCollectionViewController {
-                    songVC.delegate = self
-                }
-            }
-        }
-    }
-
-
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        let discoverTypeCollectionViewFlowLayout = discoverTypeCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
-//        let discoverSongCollectionViewFlowLayout = discoverSongCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
-//        let discoverTypeDistanceBetweenItemsCenter = discoverTypeCollectionViewFlowLayout.minimumLineSpacing + discoverTypeCollectionViewFlowLayout.itemSize.width
-//        let discoverSongDistanceBetweenItemsCenter = discoverSongCollectionViewFlowLayout.minimumLineSpacing + discoverSongCollectionViewFlowLayout.itemSize.width
-//        let offsetFactor = discoverTypeDistanceBetweenItemsCenter / discoverSongDistanceBetweenItemsCenter
 //
-//        if (scrollView == discoverTypeCollectionView) {
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if let identifier = segue.identifier {
 //
-//            let xOffset = scrollView.contentOffset.x - scrollView.frame.origin.x
-//            discoverSongCollectionView.contentOffset.x = xOffset / offsetFactor
-//        }
-//        else if (scrollView == discoverSongCollectionView) {
-//            let xOffset = scrollView.contentOffset.x - scrollView.frame.origin.x
-//            discoverTypeCollectionView.contentOffset.x = xOffset * offsetFactor
+//            switch identifier {
+//            case "DiscoverTypeCollectionViewController":
+//                if let typeVC = segue.destination as? DiscoverTypeCollectionViewController {
+//                    typeVC.delegate = self
+//                }
+//            default:
+//                if let songVC = segue.destination as? DiscoverSongCollectionViewController {
+//                    songVC.delegate = self
+//                }
+//            }
 //        }
 //    }
 }
+//
+//extension DiscoverViewController: DiscoverTypeCollectionViewControllerDelegate, DiscoverSongCollectionViewControllerDelegate {
+//
+//    // did scroll
+//    func typeViewDidScroll(_ controller: DiscoverTypeCollectionViewController, translation: CGFloat) {
+//
+//        let songVC = childViewControllers[1] as? DiscoverSongCollectionViewController
+//
+//        songVC?.collectionView.contentOffset.x = translation / offsetFactor
+//    }
+//
+//    func songViewDidScroll(_ controller: DiscoverSongCollectionViewController, translation: CGFloat) {
+////        self.songTranslation = translation
+//
+//        let typeVC = childViewControllers[0] as? DiscoverTypeCollectionViewController
+//
+//        typeVC?.collectionView.contentOffset.x = translation * offsetFactor
+//    }
+//
+//    //did select
+//
+//    func typeViewDidSelect(_ controller: DiscoverTypeCollectionViewController, indexPath: IndexPath) {
+//
+//        let songVC = childViewControllers[1] as? DiscoverSongCollectionViewController
+//
+//        songVC?.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+//
+//    }
+//}
 
-extension DiscoverViewController: DiscoverTypeCollectionViewControllerDelegate, DiscoverSongCollectionViewControllerDelegate {
-
-    func typeViewDidScroll(_ controller: DiscoverTypeCollectionViewController, translation: CGFloat) {
-        self.typeTranslation = translation
-
-        let songVC = childViewControllers[1] as? DiscoverSongCollectionViewController
-
-        print("ttttt",translation)
-        songVC?.collectionView.contentOffset.x = translation / offsetFactor
-    }
-
-    func songViewDidScroll(_ controller: DiscoverSongCollectionViewController, translation: CGFloat) {
-        self.songTranslation = translation
-
-        let typeVC = childViewControllers[0] as? DiscoverTypeCollectionViewController
-
-        typeVC?.collectionView.contentOffset.x = translation * offsetFactor
-    }
-}

@@ -10,6 +10,8 @@ import UIKit
 
 enum LetSingColor: String {
 
+    case navigationBar = "D7443E"
+
     case gradientPurple = "7830B8"
 
     case gradientBlue = "33A4CC"

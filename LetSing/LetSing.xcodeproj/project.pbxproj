@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		9D4C4BD04F5461B3D8CADA9D /* Pods_LetSing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0024C7B4BA37A2824CC5CE1 /* Pods_LetSing.framework */; };
+		FA3B815520A0058600915CC6 /* LSSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B815420A0058600915CC6 /* LSSearchBar.swift */; };
+		FA3B815720A00B5300915CC6 /* LSSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B815620A00B5300915CC6 /* LSSearchController.swift */; };
+		FA3B815920A029E500915CC6 /* LSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B815820A029E500915CC6 /* LSImage.swift */; };
+		FA41DDF9209DA4C700CDAB08 /* SongManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA41DDF8209DA4C700CDAB08 /* SongManager.swift */; };
 		FA4335A2209C334C00BC90FC /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4335A1209C334C00BC90FC /* Song.swift */; };
 		FA4335A5209C344200BC90FC /* LSHTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4335A4209C344200BC90FC /* LSHTTPRequest.swift */; };
 		FA4335A7209C353C00BC90FC /* LSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4335A6209C353C00BC90FC /* LSError.swift */; };
@@ -46,6 +50,10 @@
 		39FA2353D2F9AC0A4D435705 /* Pods-LetSing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetSing.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LetSing/Pods-LetSing.debug.xcconfig"; sourceTree = "<group>"; };
 		4093D1CACF0D3B54835936A7 /* Pods-LetSing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetSing.release.xcconfig"; path = "Pods/Target Support Files/Pods-LetSing/Pods-LetSing.release.xcconfig"; sourceTree = "<group>"; };
 		C0024C7B4BA37A2824CC5CE1 /* Pods_LetSing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LetSing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA3B815420A0058600915CC6 /* LSSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSSearchBar.swift; sourceTree = "<group>"; };
+		FA3B815620A00B5300915CC6 /* LSSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSSearchController.swift; sourceTree = "<group>"; };
+		FA3B815820A029E500915CC6 /* LSImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSImage.swift; sourceTree = "<group>"; };
+		FA41DDF8209DA4C700CDAB08 /* SongManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongManager.swift; sourceTree = "<group>"; };
 		FA4335A1209C334C00BC90FC /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		FA4335A4209C344200BC90FC /* LSHTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSHTTPRequest.swift; sourceTree = "<group>"; };
 		FA4335A6209C353C00BC90FC /* LSError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSError.swift; sourceTree = "<group>"; };
@@ -111,6 +119,55 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FA3B8151209FF5B300915CC6 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				FA3B815420A0058600915CC6 /* LSSearchBar.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		FA41DDF3209D79DD00CDAB08 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				FA7C96A920994B1600890325 /* SearchViewController.swift */,
+				FA3B815620A00B5300915CC6 /* LSSearchController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		FA41DDF4209D79F000CDAB08 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				FA7C96AE2099592C00890325 /* TabBarViewController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		FA41DDF5209D7A0200CDAB08 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				FA7C96B920995C9600890325 /* LetSingNavigationController.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		FA41DDF6209D7A1400CDAB08 /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				FA7C96C02099675200890325 /* UserProfileViewController.swift */,
+			);
+			path = UserProfile;
+			sourceTree = "<group>";
+		};
+		FA41DDF7209D7A2100CDAB08 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				FA7C96952098205400890325 /* RecordViewController.swift */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
 		FA4335A3209C343000BC90FC /* HTTP */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				FA4335A1209C334C00BC90FC /* Song.swift */,
+				FA41DDF8209DA4C700CDAB08 /* SongManager.swift */,
 				FA4335AF209C4AD200BC90FC /* SongProvider.swift */,
 			);
 			path = Song;
@@ -155,14 +213,14 @@
 			path = Discover;
 			sourceTree = "<group>";
 		};
-		FA5CA144209AE33600811B4B /* DiscoverTypeCollectionViewCell */ = {
+		FA5CA144209AE33600811B4B /* Discover */ = {
 			isa = PBXGroup;
 			children = (
 				FA5CA14E209AED5100811B4B /* DiscoverTypeCollectionViewCell */,
 				FA5CA14F209AED5F00811B4B /* DiscoverSongCollectionViewCell */,
 				FA5CA14D209AED4700811B4B /* DiscoverSongTableViewCell */,
 			);
-			path = DiscoverTypeCollectionViewCell;
+			path = Discover;
 			sourceTree = "<group>";
 		};
 		FA5CA14D209AED4700811B4B /* DiscoverSongTableViewCell */ = {
@@ -213,12 +271,12 @@
 		FA7C96922098205400890325 /* LetSing */ = {
 			isa = PBXGroup;
 			children = (
-				FA4335A3209C343000BC90FC /* HTTP */,
+				FA7C96A820994A4800890325 /* Support */,
 				FA7C96BB20995D8100890325 /* extension */,
 				FA7C96AB20994B5500890325 /* Storyboard */,
 				FA7C96A7209949E400890325 /* View */,
 				FA7C96A5209949CB00890325 /* Controller */,
-				FA7C96A820994A4800890325 /* Support */,
+				FA4335A3209C343000BC90FC /* HTTP */,
 				FA7C96A6209949DE00890325 /* Model */,
 				FA7C969A2098205400890325 /* Assets.xcassets */,
 				FA7C969C2098205400890325 /* LaunchScreen.storyboard */,
@@ -232,12 +290,12 @@
 		FA7C96A5209949CB00890325 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FA41DDF6209D7A1400CDAB08 /* UserProfile */,
+				FA41DDF5209D7A0200CDAB08 /* Navigation */,
+				FA41DDF4209D79F000CDAB08 /* TabBar */,
+				FA41DDF3209D79DD00CDAB08 /* Search */,
 				FA4335B5209C689D00BC90FC /* Discover */,
-				FA7C96952098205400890325 /* RecordViewController.swift */,
-				FA7C96A920994B1600890325 /* SearchViewController.swift */,
-				FA7C96AE2099592C00890325 /* TabBarViewController.swift */,
-				FA7C96B920995C9600890325 /* LetSingNavigationController.swift */,
-				FA7C96C02099675200890325 /* UserProfileViewController.swift */,
+				FA41DDF7209D7A2100CDAB08 /* Record */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -255,7 +313,8 @@
 		FA7C96A7209949E400890325 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FA5CA144209AE33600811B4B /* DiscoverTypeCollectionViewCell */,
+				FA3B8151209FF5B300915CC6 /* Search */,
+				FA5CA144209AE33600811B4B /* Discover */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -265,6 +324,7 @@
 			children = (
 				FA7C96BE209962B800890325 /* LetSingColor.swift */,
 				FA5CA13C209ADFCC00811B4B /* POMCollectionViewFlowLayout.swift */,
+				FA3B815820A029E500915CC6 /* LSImage.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -438,6 +498,7 @@
 				FA4335AA209C37C000BC90FC /* LSConstants.swift in Sources */,
 				FA4335A7209C353C00BC90FC /* LSError.swift in Sources */,
 				FA4335B0209C4AD200BC90FC /* SongProvider.swift in Sources */,
+				FA3B815720A00B5300915CC6 /* LSSearchController.swift in Sources */,
 				FA7C96BA20995C9600890325 /* LetSingNavigationController.swift in Sources */,
 				FA7C96AF2099592C00890325 /* TabBarViewController.swift in Sources */,
 				FA4335AE209C4A0700BC90FC /* LSHTTPSession.swift in Sources */,
@@ -452,8 +513,11 @@
 				FA7C96962098205400890325 /* RecordViewController.swift in Sources */,
 				FA5CA147209AEC5100811B4B /* DiscoverSongCollectionViewCell.swift in Sources */,
 				FA7C96942098205400890325 /* AppDelegate.swift in Sources */,
+				FA41DDF9209DA4C700CDAB08 /* SongManager.swift in Sources */,
 				FA7C96C12099675200890325 /* UserProfileViewController.swift in Sources */,
+				FA3B815920A029E500915CC6 /* LSImage.swift in Sources */,
 				FA7C96B820995ABD00890325 /* DiscoverViewController.swift in Sources */,
+				FA3B815520A0058600915CC6 /* LSSearchBar.swift in Sources */,
 				FA4335A5209C344200BC90FC /* LSHTTPRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
