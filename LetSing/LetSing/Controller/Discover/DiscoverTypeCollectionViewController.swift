@@ -51,7 +51,7 @@ class DiscoverTypeCollectionViewController: UIViewController {
 extension DiscoverTypeCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
-        return 3
+        return 5
 
     }
 

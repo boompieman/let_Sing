@@ -23,7 +23,7 @@ class DiscoverViewController: UIViewController, UIScrollViewDelegate {
 
         scrollView.delegate = self
 
-        self.scrollView.contentSize = CGSize(width: self.view.frame.width * 3, height: self.view.frame.height)
+        self.scrollView.contentSize = CGSize(width: self.view.frame.width * 5, height: self.view.frame.height)
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -32,11 +32,9 @@ class DiscoverViewController: UIViewController, UIScrollViewDelegate {
 
         let songVC = childViewControllers[1] as? DiscoverSongCollectionViewController
 
-        songVC?.collectionView.setContentOffset(CGPoint(x: offsetX / offsetFactor, y: (songVC?.collectionView.frame.origin.y)!), animated: false)
+        songVC?.collectionView.setContentOffset(CGPoint(x: offsetX, y: (songVC?.collectionView.frame.origin.y)!), animated: false)
 
         let typeVC = childViewControllers[0] as? DiscoverTypeCollectionViewController
-
-        print((self.view.frame.width)/4 + offsetX * offsetFactor)
 
         typeVC?.collectionView.setContentOffset(CGPoint(x: offsetX * offsetFactor, y: (typeVC?.collectionView.frame.origin.y)!), animated: false)
 
