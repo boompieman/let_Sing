@@ -28,7 +28,7 @@ private enum searchSongAPI: LSHTTPRequest {
         switch self {
         case .getSongBySearch(let song):
 
-            return ["part" : "snippet", "q" : song, "maxResult": "5", "key" : LSConstants.youtubeKey]
+            return ["part" : "snippet", "q" : song, "maxResult": "1", "key" : LSConstants.youtubeKey]
         }
     }
 
@@ -52,13 +52,34 @@ struct SongProvider {
 
         httpClient?.request(searchSongAPI.getSongBySearch(songName), success: { (data) in
 
+            guard let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: AnyObject] else {
+                return
+            }
 
+            guard let jj = json else {
+                return
+            }
 
-            let json = try? JSONSerialization.jsonObject(with: data, options: [])
+            guard let items = jj["items"] as? [AnyObject] else { return }
 
-            print(json)
+            var songList = [Song]()
 
-            success([Song(name: "a", singer: "b", image: "c", youtube_url: "d", rank: 5, type: nil)])
+            for result in items {
+
+                guard let snippetDict = result["snippet"] as? [String:Any], let id = result["id"] as? [String: AnyObject] else {
+                    return
+                }
+
+                guard let thumbnails = snippetDict["thumbnails"] as? [String: AnyObject], let vedioID = id["videoId"] as? String, let title = snippetDict["title"] as? String, let defaultImage = thumbnails["default"] as? [String: AnyObject], let imageUrl = defaultImage["url"] as? String else {
+                    return
+                }
+
+                let song = Song(name: title, singer: nil, image: imageUrl, youtube_url: vedioID, rank: nil, type: nil)
+
+                songList.append(song)
+            }
+
+            success(songList)
 
         }, failure: { (error) in
             print(error)

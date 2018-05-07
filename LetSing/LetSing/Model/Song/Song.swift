@@ -11,10 +11,10 @@ import Foundation
 
 struct Song {
     let name: String
-    let singer: String
+    let singer: String?
     let image: String
     let youtube_url: String
-    let rank: Int
+    let rank: Int?
     var type: String? // chinese, english, holiday ...
 }
 

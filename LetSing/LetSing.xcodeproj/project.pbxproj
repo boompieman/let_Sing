@@ -11,6 +11,8 @@
 		FA3B815520A0058600915CC6 /* LSSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B815420A0058600915CC6 /* LSSearchBar.swift */; };
 		FA3B815720A00B5300915CC6 /* LSSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B815620A00B5300915CC6 /* LSSearchController.swift */; };
 		FA3B815920A029E500915CC6 /* LSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B815820A029E500915CC6 /* LSImage.swift */; };
+		FA3B815E20A060EE00915CC6 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B815C20A060EE00915CC6 /* SearchResultTableViewCell.swift */; };
+		FA3B815F20A060EE00915CC6 /* SearchResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3B815D20A060EE00915CC6 /* SearchResultTableViewCell.xib */; };
 		FA41DDF9209DA4C700CDAB08 /* SongManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA41DDF8209DA4C700CDAB08 /* SongManager.swift */; };
 		FA4335A2209C334C00BC90FC /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4335A1209C334C00BC90FC /* Song.swift */; };
 		FA4335A5209C344200BC90FC /* LSHTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4335A4209C344200BC90FC /* LSHTTPRequest.swift */; };
@@ -53,6 +55,8 @@
 		FA3B815420A0058600915CC6 /* LSSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSSearchBar.swift; sourceTree = "<group>"; };
 		FA3B815620A00B5300915CC6 /* LSSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSSearchController.swift; sourceTree = "<group>"; };
 		FA3B815820A029E500915CC6 /* LSImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSImage.swift; sourceTree = "<group>"; };
+		FA3B815C20A060EE00915CC6 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
+		FA3B815D20A060EE00915CC6 /* SearchResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultTableViewCell.xib; sourceTree = "<group>"; };
 		FA41DDF8209DA4C700CDAB08 /* SongManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongManager.swift; sourceTree = "<group>"; };
 		FA4335A1209C334C00BC90FC /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		FA4335A4209C344200BC90FC /* LSHTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSHTTPRequest.swift; sourceTree = "<group>"; };
@@ -122,9 +126,27 @@
 		FA3B8151209FF5B300915CC6 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				FA3B815420A0058600915CC6 /* LSSearchBar.swift */,
+				FA3B815B20A0606F00915CC6 /* SearchBar */,
+				FA3B815A20A0604000915CC6 /* SearchResultTableViewCell */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		FA3B815A20A0604000915CC6 /* SearchResultTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				FA3B815C20A060EE00915CC6 /* SearchResultTableViewCell.swift */,
+				FA3B815D20A060EE00915CC6 /* SearchResultTableViewCell.xib */,
+			);
+			path = SearchResultTableViewCell;
+			sourceTree = "<group>";
+		};
+		FA3B815B20A0606F00915CC6 /* SearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				FA3B815420A0058600915CC6 /* LSSearchBar.swift */,
+			);
+			path = SearchBar;
 			sourceTree = "<group>";
 		};
 		FA41DDF3209D79DD00CDAB08 /* Search */ = {
@@ -276,8 +298,8 @@
 				FA7C96AB20994B5500890325 /* Storyboard */,
 				FA7C96A7209949E400890325 /* View */,
 				FA7C96A5209949CB00890325 /* Controller */,
-				FA4335A3209C343000BC90FC /* HTTP */,
 				FA7C96A6209949DE00890325 /* Model */,
+				FA4335A3209C343000BC90FC /* HTTP */,
 				FA7C969A2098205400890325 /* Assets.xcassets */,
 				FA7C969C2098205400890325 /* LaunchScreen.storyboard */,
 				FA7C96932098205400890325 /* AppDelegate.swift */,
@@ -417,6 +439,7 @@
 				FA7C969B2098205400890325 /* Assets.xcassets in Resources */,
 				FA7C96B1209959A300890325 /* Discover.storyboard in Resources */,
 				FA7C96992098205400890325 /* Record.storyboard in Resources */,
+				FA3B815F20A060EE00915CC6 /* SearchResultTableViewCell.xib in Resources */,
 				FA5CA148209AEC5100811B4B /* DiscoverSongCollectionViewCell.xib in Resources */,
 				FA5CA14C209AED3E00811B4B /* DiscoverSongTableViewCell.xib in Resources */,
 				FA5CA143209AE32800811B4B /* DiscoverTypeCollectionViewCell.xib in Resources */,
@@ -470,17 +493,17 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-LetSing/Pods-LetSing-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/YouTubePlayer/YouTubePlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
-				"${BUILT_PRODUCTS_DIR}/youtube-ios-player-helper/youtube_ios_player_helper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YouTubePlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/youtube_ios_player_helper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -518,6 +541,7 @@
 				FA3B815920A029E500915CC6 /* LSImage.swift in Sources */,
 				FA7C96B820995ABD00890325 /* DiscoverViewController.swift in Sources */,
 				FA3B815520A0058600915CC6 /* LSSearchBar.swift in Sources */,
+				FA3B815E20A060EE00915CC6 /* SearchResultTableViewCell.swift in Sources */,
 				FA4335A5209C344200BC90FC /* LSHTTPRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

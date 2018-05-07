@@ -13,18 +13,32 @@ class SearchViewController: UIViewController {
 
     var searchController: LSSearchController!
 
-//    var searchBarView = UISearchBar()
+    @IBOutlet weak var tableView: UITableView!
 
     var songManager = SongManager()
+
+    var songs = [Song]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configureCustomSearchController()
 
+        setupTableView()
+
         searchController.searchBarDelegate = self
 
         songManager.delegate = self
+    }
+
+    func setupTableView() {
+
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+
+        let nib = UINib(nibName: String(describing: SearchResultTableViewCell.self), bundle: nil)
+
+        self.tableView.register(nib, forCellReuseIdentifier: String(describing: SearchResultTableViewCell.self))
     }
 
     func configureCustomSearchController() {
@@ -36,15 +50,36 @@ class SearchViewController: UIViewController {
 //        LSSearchController.searchBarDelegate = self
 
         self.navigationItem.titleView = searchController.customSearchBar
+    }
+}
 
+extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
 
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.songs.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: SearchResultTableViewCell.self), for: indexPath)
+
+        guard let searchResultTableViewCell = cell as? SearchResultTableViewCell else {return cell}
+
+        searchResultTableViewCell.updateDataWith(title: songs[indexPath.row].name, imageUrl: songs[indexPath.row].image)
+
+        return searchResultTableViewCell
     }
 }
 
 extension SearchViewController: SongManagerDelegate {
 
     func manager(_ manager: SongManager, didGet songs: [Song]) {
-        print(songs)
+        self.songs = songs
+        self.tableView.reloadData()
     }
 }
 

@@ -19,10 +19,8 @@ class DiscoverViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
 
-        print("handle didScroll")
-
         scrollView.delegate = self
-
+        
         self.scrollView.contentSize = CGSize(width: self.view.frame.width * 5, height: self.view.frame.height)
     }
 

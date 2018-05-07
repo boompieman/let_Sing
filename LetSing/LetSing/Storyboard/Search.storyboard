@@ -18,20 +18,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="phh-zV-NYg">
-                                <rect key="frame" x="9" y="99" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="phh-zV-NYg">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <sections/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="phh-zV-NYg" firstAttribute="leading" secondItem="Hxw-b9-B69" secondAttribute="leading" id="0uy-lL-dFv"/>
+                            <constraint firstItem="Hxw-b9-B69" firstAttribute="trailing" secondItem="phh-zV-NYg" secondAttribute="trailing" id="BCi-Bc-1mt"/>
+                            <constraint firstItem="phh-zV-NYg" firstAttribute="top" secondItem="Hxw-b9-B69" secondAttribute="top" id="KTL-vx-AyM"/>
+                            <constraint firstItem="Hxw-b9-B69" firstAttribute="bottom" secondItem="phh-zV-NYg" secondAttribute="bottom" id="Pd1-JD-SUL"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Hxw-b9-B69"/>
                     </view>
                     <navigationItem key="navigationItem" id="6of-zc-Rto"/>
+                    <connections>
+                        <outlet property="tableView" destination="phh-zV-NYg" id="xjN-ld-Wto"/>
+                        <segue destination="h6C-2R-L6t" kind="push" id="mMc-x3-THo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7cb-01-NpY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="322" y="98"/>
+            <point key="canvasLocation" x="320.80000000000001" y="97.601199400299862"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tot-2g-2Kg">
+            <objects>
+                <viewController id="h6C-2R-L6t" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="k6K-bf-oqc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="faX-AO-nnV"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="qRq-tG-hzK"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1zm-Jm-nqd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1189" y="105"/>
         </scene>
         <!--Let Sing Navigation Controller-->
         <scene sceneID="n0V-IE-dNl">
