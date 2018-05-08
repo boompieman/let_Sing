@@ -1,5 +1,5 @@
 //
-//  DiscoverViewController.swift
+//  UserProfileViewController.swift
 //  LetSing
 //
 //  Created by MACBOOK on 2018/5/2.
@@ -10,11 +10,17 @@ import Foundation
 import UIKit
 
 
-class DiscoverViewController: UIViewController {
+class userProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+
+
+    }
+
+    func getYoutube() {
+        
     }
 
 }

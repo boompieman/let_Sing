@@ -7,9 +7,11 @@ target 'LetSing' do
 
   # Pods for LetSing
 
-  pod "youtube-ios-player-helper", "~> 0.1.1"
+  pod 'SDWebImage'
   pod "Alamofire"
   pod 'YouTubePlayer'
   pod 'SwiftLint'
+  pod 'Firebase/Core'
+  pod "XCDYouTubeKit", "~> 2.5"
 
 end
