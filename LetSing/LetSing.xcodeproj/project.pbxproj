@@ -10,7 +10,9 @@
 		9D4C4BD04F5461B3D8CADA9D /* Pods_LetSing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0024C7B4BA37A2824CC5CE1 /* Pods_LetSing.framework */; };
 		FA1DD01020A1713700F92475 /* RecordNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1DD00F20A1713700F92475 /* RecordNavigationView.swift */; };
 		FA1DD01220A18EF000F92475 /* RecordVideoPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1DD01120A18EF000F92475 /* RecordVideoPanelView.swift */; };
-		FA1DD01520A1996E00F92475 /* LSVideoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1DD01420A1996E00F92475 /* LSVideoProvider.swift */; };
+		FA1DD01920A1A6F900F92475 /* LSPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1DD01820A1A6F900F92475 /* LSPlayerView.swift */; };
+		FA1DD01B20A3EBBC00F92475 /* LSYoutubeVideoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1DD01A20A3EBBC00F92475 /* LSYoutubeVideoProvider.swift */; };
+		FA1DD01D20A3EFBB00F92475 /* LSYoutubeTimerTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1DD01C20A3EFBB00F92475 /* LSYoutubeTimerTransformer.swift */; };
 		FA3B815520A0058600915CC6 /* LSSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B815420A0058600915CC6 /* LSSearchBar.swift */; };
 		FA3B815720A00B5300915CC6 /* LSSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B815620A00B5300915CC6 /* LSSearchController.swift */; };
 		FA3B815920A029E500915CC6 /* LSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3B815820A029E500915CC6 /* LSImage.swift */; };
@@ -57,7 +59,9 @@
 		C0024C7B4BA37A2824CC5CE1 /* Pods_LetSing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LetSing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA1DD00F20A1713700F92475 /* RecordNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordNavigationView.swift; sourceTree = "<group>"; };
 		FA1DD01120A18EF000F92475 /* RecordVideoPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordVideoPanelView.swift; sourceTree = "<group>"; };
-		FA1DD01420A1996E00F92475 /* LSVideoProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSVideoProvider.swift; sourceTree = "<group>"; };
+		FA1DD01820A1A6F900F92475 /* LSPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSPlayerView.swift; sourceTree = "<group>"; };
+		FA1DD01A20A3EBBC00F92475 /* LSYoutubeVideoProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSYoutubeVideoProvider.swift; sourceTree = "<group>"; };
+		FA1DD01C20A3EFBB00F92475 /* LSYoutubeTimerTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSYoutubeTimerTransformer.swift; sourceTree = "<group>"; };
 		FA3B815420A0058600915CC6 /* LSSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSSearchBar.swift; sourceTree = "<group>"; };
 		FA3B815620A00B5300915CC6 /* LSSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSSearchController.swift; sourceTree = "<group>"; };
 		FA3B815820A029E500915CC6 /* LSImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSImage.swift; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 			children = (
 				FA1DD00F20A1713700F92475 /* RecordNavigationView.swift */,
 				FA1DD01120A18EF000F92475 /* RecordVideoPanelView.swift */,
+				FA1DD01820A1A6F900F92475 /* LSPlayerView.swift */,
 			);
 			path = Record;
 			sourceTree = "<group>";
@@ -141,7 +146,8 @@
 		FA1DD01320A1995900F92475 /* LSVideo */ = {
 			isa = PBXGroup;
 			children = (
-				FA1DD01420A1996E00F92475 /* LSVideoProvider.swift */,
+				FA1DD01C20A3EFBB00F92475 /* LSYoutubeTimerTransformer.swift */,
+				FA1DD01A20A3EBBC00F92475 /* LSYoutubeVideoProvider.swift */,
 			);
 			path = LSVideo;
 			sourceTree = "<group>";
@@ -519,6 +525,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/XCDYouTubeKit/XCDYouTubeKit.framework",
 				"${BUILT_PRODUCTS_DIR}/YouTubePlayer/YouTubePlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -527,6 +534,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCDYouTubeKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YouTubePlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -546,6 +554,7 @@
 				FA4335AA209C37C000BC90FC /* LSConstants.swift in Sources */,
 				FA4335A7209C353C00BC90FC /* LSError.swift in Sources */,
 				FA4335B0209C4AD200BC90FC /* SongProvider.swift in Sources */,
+				FA1DD01B20A3EBBC00F92475 /* LSYoutubeVideoProvider.swift in Sources */,
 				FA3B815720A00B5300915CC6 /* LSSearchController.swift in Sources */,
 				FA7C96BA20995C9600890325 /* LetSingNavigationController.swift in Sources */,
 				FA1DD01020A1713700F92475 /* RecordNavigationView.swift in Sources */,
@@ -555,17 +564,18 @@
 				FA7C96BF209962B800890325 /* LetSingColor.swift in Sources */,
 				FA1DD01220A18EF000F92475 /* RecordVideoPanelView.swift in Sources */,
 				FA4335B2209C687F00BC90FC /* DiscoverTypeCollectionViewController.swift in Sources */,
-				FA1DD01520A1996E00F92475 /* LSVideoProvider.swift in Sources */,
 				FA5CA13D209ADFCC00811B4B /* POMCollectionViewFlowLayout.swift in Sources */,
 				FA5CA142209AE32800811B4B /* DiscoverTypeCollectionViewCell.swift in Sources */,
 				FA7C96AA20994B1600890325 /* SearchViewController.swift in Sources */,
 				FA4335B4209C689500BC90FC /* DiscoverSongCollectionViewController.swift in Sources */,
 				FA7C96BD20995D9800890325 /* UIStoryboard+Sam.swift in Sources */,
 				FA7C96962098205400890325 /* RecordViewController.swift in Sources */,
+				FA1DD01D20A3EFBB00F92475 /* LSYoutubeTimerTransformer.swift in Sources */,
 				FA5CA147209AEC5100811B4B /* DiscoverSongCollectionViewCell.swift in Sources */,
 				FA7C96942098205400890325 /* AppDelegate.swift in Sources */,
 				FA41DDF9209DA4C700CDAB08 /* SongManager.swift in Sources */,
 				FA7C96C12099675200890325 /* UserProfileViewController.swift in Sources */,
+				FA1DD01920A1A6F900F92475 /* LSPlayerView.swift in Sources */,
 				FA3B815920A029E500915CC6 /* LSImage.swift in Sources */,
 				FA7C96B820995ABD00890325 /* DiscoverViewController.swift in Sources */,
 				FA3B815520A0058600915CC6 /* LSSearchBar.swift in Sources */,

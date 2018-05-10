@@ -9,8 +9,9 @@ target 'LetSing' do
 
   pod 'SDWebImage'
   pod "Alamofire"
+  pod 'YouTubePlayer'
   pod 'SwiftLint'
   pod 'Firebase/Core'
-  pod 'YouTubePlayer', :git => 'https://github.com/boompieman/Swift-YouTube-Player.git'
+  pod "XCDYouTubeKit", "~> 2.5"
 
 end

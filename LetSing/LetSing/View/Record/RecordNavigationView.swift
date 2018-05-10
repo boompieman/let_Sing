@@ -13,8 +13,6 @@ class RecordNavigationView: UIView {
 
     @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var timeStartLabel: UILabel!
-    @IBOutlet weak var timeEndLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
