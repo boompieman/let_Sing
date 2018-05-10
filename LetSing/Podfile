@@ -12,6 +12,6 @@ target 'LetSing' do
   pod 'YouTubePlayer'
   pod 'SwiftLint'
   pod 'Firebase/Core'
-  pod "XCDYouTubeKit", "~> 2.5"
+  pod 'YouTubePlayer'
 
 end
